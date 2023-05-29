@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: aliceblue;
+      }
+
+      .wrapper {
+        width: 100%;
+        height: 100vh;
+      }
+      .answer {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-top: 20%;
+      }
+
+      #success {
+        display: none;
+      }
+
+      .modal {
+        width: 20%;
+        height: 30vh;
+        position: absolute;
+        top: 30%;
+        left: 40%;
+        background-color: rgb(155 190 224);
+        border-radius: 5%;
+        text-align: center;
+        border: solid 1px black;
+        color: #302c2c;
+        font-family: 'PT Sans', sans-serif;
+      }
+
+      .button {
+        border: solid 1px grey;
+        padding: 5%;
+        border-radius: 15px;
+        background-color: rgb(202 221 238);
+        width: 30%;
+        cursor: pointer;
+      }
+
+      .button :hover {
+        opacity: 0.1;
+      }
+
+      .typewriter {
+        width: 33%;
+        margin-left: 33%;
+        padding-top: 5%;
+      }
+
+      .typewriter h1 {
+        font-family: 'Roboto Mono';
+        font-size: 22px;
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid orange; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em; /* Adjust as needed */
+        animation: 
+          typing 5.5s steps(40, end),
+          blink-caret .75s step-end infinite;
+      }
+
+      /* The typing effect */
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+      }
+
+      /* The typewriter cursor effect */
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: orange; }
+      }
+
+    </style>
+    <script>
+      function moveElmRand() {
+        var div1 = document.getElementById('modal');
+        div1.style.position ='relative';
+        div1.style.top = Math.floor(Math.random()*90)+'%';
+        div1.style.left = Math.floor(Math.random()*90)+'%';
+      }
+
+      function removeElements() {
+        var content = document.getElementById('content');
+        var answer = document.getElementById('answer');
+        var success = document.getElementById('success');
+        content.style.display = 'none';
+        answer.style.display = 'none';
+        success.style.display = 'block';
+        var div1 = document.getElementById('modal');
+        div1.style.position ='absolute';
+        div1.style.top = '30%';
+        div1.style.left = '40%';
+      }
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="typewriter">
+        <h1>Some text</h1>
+      </div>
+      <div class="modal" id="modal">
+        <div id="content">
+          <h4>
+            Do you want to close the page?
+          </h4>
+          <p>
+            This is an application with bvalblabla
+          </p>
+          <h5>Do you accept this terms?</h5>
+        </div>
+
+        <div class="answer" id="answer">
+          <div class="button" onclick="removeElements()">YES</div>
+          <div class="button" onmouseover="moveElmRand()">NO</div>
+        </div>
+        <div id="success">
+          <h4>Muchas gracias por aceptar! Más información será brindada en breve. </h4>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer>
+
+  </footer>
+</html>
